@@ -3,7 +3,7 @@ package org.example.my_array_list;
 public class MainArrayList {
     public static void main(String[] args) {
 
-        MyArrayList myArrayList = new MyArrayList();
+        MyArrayList<String> myArrayList = new MyArrayList();
 
 
         myArrayList.add("Marcin");

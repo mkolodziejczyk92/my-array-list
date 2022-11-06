@@ -4,19 +4,21 @@ import java.util.Arrays;
 
 public class MyArrayList<T> implements MyArrayListMethod {
 
-    String[] arrayForArrayList;
+    Object[] arrayForArrayList;
     private int index = 0;
     private final int DEFAULT_SIZE = 10;
     private int capacity = 10;
 
 
+
+
     public MyArrayList() {
 
-        arrayForArrayList = new String[DEFAULT_SIZE];
+        arrayForArrayList = new Object[DEFAULT_SIZE];
     }
 
     @Override // READY TO USE
-    public void add(String data) {
+    public void add(Object data) {
         if (capacity == index + 1) {
             arrayForArrayList = Arrays.copyOf(arrayForArrayList, capacity + 10);
             capacity += 10;
@@ -27,8 +29,8 @@ public class MyArrayList<T> implements MyArrayListMethod {
     }
 
     @Override // READY TO USE
-    public void removeFirst(String data) {
-        String[] arrayForRemove = new String[index];
+    public void removeFirst(Object data) {
+        Object[] arrayForRemove = new Object[index];
         int newIndex = 0;
         while (!arrayForArrayList[newIndex].equals(data)) {
             arrayForRemove[newIndex] = arrayForArrayList[newIndex];
@@ -45,7 +47,7 @@ public class MyArrayList<T> implements MyArrayListMethod {
 
     @Override // READY TO USE
     public void remove(int index) {
-        String[] arrayForRemove = new String[this.index];
+        Object[] arrayForRemove = new Object[this.index];
         int newIndex = 0;
         while (newIndex != index) {
             arrayForRemove[newIndex] = arrayForArrayList[newIndex];
@@ -61,16 +63,16 @@ public class MyArrayList<T> implements MyArrayListMethod {
     }
 
     @Override // READY TO USE
-    public void removeAll(String data) {
+    public void removeAll(Object data) {
         int counter = 0;
-        String[] arrayForRemoveAll2 = Arrays.copyOf(arrayForArrayList, index);
+        Object[] arrayForRemoveAll2 = Arrays.copyOf(arrayForArrayList, index);
         for (int i = 0; i < arrayForRemoveAll2.length; i++) {
             if(arrayForRemoveAll2[i].equals(data)){
                 arrayForRemoveAll2[i] = null;
                 counter++;
             }
         }
-        String[] arrayForRemoveAll1 = new String[arrayForRemoveAll2.length - counter];
+        Object[] arrayForRemoveAll1 = new Object[arrayForRemoveAll2.length - counter];
         int counter2 = 0;
         for (int i = 0; i < arrayForRemoveAll2.length; i++) {
             if(arrayForRemoveAll2[i] != null){
@@ -95,12 +97,12 @@ public class MyArrayList<T> implements MyArrayListMethod {
 
     @Override // READU TO USE
     public void clear() {
-        arrayForArrayList = new String[DEFAULT_SIZE];
+        arrayForArrayList = new Object[DEFAULT_SIZE];
         this.index = 0;
     }
 
     @Override // READY TO USE
-    public String get(int indexPosition) {
+    public Object get(int indexPosition) {
         if (arrayForArrayList[indexPosition] == null) {
             throw new IndexOutOfBoundsException();
         }

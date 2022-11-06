@@ -1,13 +1,13 @@
 package org.example.my_array_list;
 
-public interface MyArrayListMethod {
+public interface MyArrayListMethod<T> {
 
-    void add(String data);
-    void removeFirst(String data);
+    void add(T data);
+    void removeFirst(T data);
     int size();
     void clear();
-    String get(int indexPosition);
+    T get(int indexPosition);
     boolean isEmpty();
-    void removeAll(String data);
+    void removeAll(T data);
     void remove(int index);
 }
